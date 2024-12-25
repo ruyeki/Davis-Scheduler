@@ -1,0 +1,24 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows"]
+  output        = "./generated/client_courses"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Courses {
+  id                     Int     @id @default(autoincrement()) // Primary Key
+  time_days              String  @db.VarChar(255)
+  course                 String  @db.VarChar(64)
+  location               String  @db.VarChar(50)
+  section                String? @db.VarChar(10)
+  open_reserved_waitlist String  @db.VarChar(20)
+  title                  String  @db.VarChar(255)
+  ge_credit              String  @db.VarChar(100)
+  instructor             String  @db.VarChar(255)
+  course_units           Float
+  detail                 String  @db.VarChar(50)
+}
