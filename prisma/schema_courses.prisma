@@ -10,15 +10,11 @@ datasource db {
 }
 
 model Courses {
-  id                     Int     @id @default(autoincrement())  // Primary Key
-  time_days              String  @db.VarChar(255)  
-  course                 String  @db.VarChar(64)  
-  location               String  @db.VarChar(50)   
-  section                String? @db.VarChar(10)   
-  open_reserved_waitlist String  @db.VarChar(20)   
-  title                  String  @db.VarChar(255)  
-  ge_credit              String  @db.VarChar(100)  
-  instructor             String  @db.VarChar(255)  
-  course_units           Float                   
-  detail                 String  @db.VarChar(50)   
+  id                    Int     @id @default(autoincrement())  // Primary Key (Unique identifier)
+  crn                   Int     @db.Int                       // CRN from CSV
+  course                String  @db.VarChar(64)  
+  section               String  @db.VarChar(20)  
+  title                 String  @db.VarChar(255)  
+  instructor            String  @db.VarChar(255)  
+  exam_start_time       DateTime @db.DateTime(0)              // DateTime for exam scheduling
 }

@@ -124,26 +124,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.CoursesScalarFieldEnum = {
   id: 'id',
-  time_days: 'time_days',
+  crn: 'crn',
   course: 'course',
-  location: 'location',
   section: 'section',
-  open_reserved_waitlist: 'open_reserved_waitlist',
   title: 'title',
-  ge_credit: 'ge_credit',
   instructor: 'instructor',
-  course_units: 'course_units',
-  detail: 'detail'
+  exam_start_time: 'exam_start_time'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 
 

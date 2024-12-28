@@ -853,108 +853,84 @@ export namespace Prisma {
 
   export type CoursesAvgAggregateOutputType = {
     id: number | null
-    course_units: number | null
+    crn: number | null
   }
 
   export type CoursesSumAggregateOutputType = {
     id: number | null
-    course_units: number | null
+    crn: number | null
   }
 
   export type CoursesMinAggregateOutputType = {
     id: number | null
-    time_days: string | null
+    crn: number | null
     course: string | null
-    location: string | null
     section: string | null
-    open_reserved_waitlist: string | null
     title: string | null
-    ge_credit: string | null
     instructor: string | null
-    course_units: number | null
-    detail: string | null
+    exam_start_time: Date | null
   }
 
   export type CoursesMaxAggregateOutputType = {
     id: number | null
-    time_days: string | null
+    crn: number | null
     course: string | null
-    location: string | null
     section: string | null
-    open_reserved_waitlist: string | null
     title: string | null
-    ge_credit: string | null
     instructor: string | null
-    course_units: number | null
-    detail: string | null
+    exam_start_time: Date | null
   }
 
   export type CoursesCountAggregateOutputType = {
     id: number
-    time_days: number
+    crn: number
     course: number
-    location: number
     section: number
-    open_reserved_waitlist: number
     title: number
-    ge_credit: number
     instructor: number
-    course_units: number
-    detail: number
+    exam_start_time: number
     _all: number
   }
 
 
   export type CoursesAvgAggregateInputType = {
     id?: true
-    course_units?: true
+    crn?: true
   }
 
   export type CoursesSumAggregateInputType = {
     id?: true
-    course_units?: true
+    crn?: true
   }
 
   export type CoursesMinAggregateInputType = {
     id?: true
-    time_days?: true
+    crn?: true
     course?: true
-    location?: true
     section?: true
-    open_reserved_waitlist?: true
     title?: true
-    ge_credit?: true
     instructor?: true
-    course_units?: true
-    detail?: true
+    exam_start_time?: true
   }
 
   export type CoursesMaxAggregateInputType = {
     id?: true
-    time_days?: true
+    crn?: true
     course?: true
-    location?: true
     section?: true
-    open_reserved_waitlist?: true
     title?: true
-    ge_credit?: true
     instructor?: true
-    course_units?: true
-    detail?: true
+    exam_start_time?: true
   }
 
   export type CoursesCountAggregateInputType = {
     id?: true
-    time_days?: true
+    crn?: true
     course?: true
-    location?: true
     section?: true
-    open_reserved_waitlist?: true
     title?: true
-    ge_credit?: true
     instructor?: true
-    course_units?: true
-    detail?: true
+    exam_start_time?: true
     _all?: true
   }
 
@@ -1046,16 +1022,12 @@ export namespace Prisma {
 
   export type CoursesGroupByOutputType = {
     id: number
-    time_days: string
+    crn: number
     course: string
-    location: string
-    section: string | null
-    open_reserved_waitlist: string
+    section: string
     title: string
-    ge_credit: string
     instructor: string
-    course_units: number
-    detail: string
+    exam_start_time: Date
     _count: CoursesCountAggregateOutputType | null
     _avg: CoursesAvgAggregateOutputType | null
     _sum: CoursesSumAggregateOutputType | null
@@ -1079,31 +1051,23 @@ export namespace Prisma {
 
   export type CoursesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    time_days?: boolean
+    crn?: boolean
     course?: boolean
-    location?: boolean
     section?: boolean
-    open_reserved_waitlist?: boolean
     title?: boolean
-    ge_credit?: boolean
     instructor?: boolean
-    course_units?: boolean
-    detail?: boolean
+    exam_start_time?: boolean
   }, ExtArgs["result"]["courses"]>
 
 
   export type CoursesSelectScalar = {
     id?: boolean
-    time_days?: boolean
+    crn?: boolean
     course?: boolean
-    location?: boolean
     section?: boolean
-    open_reserved_waitlist?: boolean
     title?: boolean
-    ge_credit?: boolean
     instructor?: boolean
-    course_units?: boolean
-    detail?: boolean
+    exam_start_time?: boolean
   }
 
 
@@ -1112,16 +1076,12 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      time_days: string
+      crn: number
       course: string
-      location: string
-      section: string | null
-      open_reserved_waitlist: string
+      section: string
       title: string
-      ge_credit: string
       instructor: string
-      course_units: number
-      detail: string
+      exam_start_time: Date
     }, ExtArgs["result"]["courses"]>
     composites: {}
   }
@@ -1492,16 +1452,12 @@ export namespace Prisma {
    */ 
   interface CoursesFieldRefs {
     readonly id: FieldRef<"Courses", 'Int'>
-    readonly time_days: FieldRef<"Courses", 'String'>
+    readonly crn: FieldRef<"Courses", 'Int'>
     readonly course: FieldRef<"Courses", 'String'>
-    readonly location: FieldRef<"Courses", 'String'>
     readonly section: FieldRef<"Courses", 'String'>
-    readonly open_reserved_waitlist: FieldRef<"Courses", 'String'>
     readonly title: FieldRef<"Courses", 'String'>
-    readonly ge_credit: FieldRef<"Courses", 'String'>
     readonly instructor: FieldRef<"Courses", 'String'>
-    readonly course_units: FieldRef<"Courses", 'Float'>
-    readonly detail: FieldRef<"Courses", 'String'>
+    readonly exam_start_time: FieldRef<"Courses", 'DateTime'>
   }
     
 
@@ -1791,16 +1747,12 @@ export namespace Prisma {
 
   export const CoursesScalarFieldEnum: {
     id: 'id',
-    time_days: 'time_days',
+    crn: 'crn',
     course: 'course',
-    location: 'location',
     section: 'section',
-    open_reserved_waitlist: 'open_reserved_waitlist',
     title: 'title',
-    ge_credit: 'ge_credit',
     instructor: 'instructor',
-    course_units: 'course_units',
-    detail: 'detail'
+    exam_start_time: 'exam_start_time'
   };
 
   export type CoursesScalarFieldEnum = (typeof CoursesScalarFieldEnum)[keyof typeof CoursesScalarFieldEnum]
@@ -1812,14 +1764,6 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1842,6 +1786,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1856,30 +1807,22 @@ export namespace Prisma {
     OR?: CoursesWhereInput[]
     NOT?: CoursesWhereInput | CoursesWhereInput[]
     id?: IntFilter<"Courses"> | number
-    time_days?: StringFilter<"Courses"> | string
+    crn?: IntFilter<"Courses"> | number
     course?: StringFilter<"Courses"> | string
-    location?: StringFilter<"Courses"> | string
-    section?: StringNullableFilter<"Courses"> | string | null
-    open_reserved_waitlist?: StringFilter<"Courses"> | string
+    section?: StringFilter<"Courses"> | string
     title?: StringFilter<"Courses"> | string
-    ge_credit?: StringFilter<"Courses"> | string
     instructor?: StringFilter<"Courses"> | string
-    course_units?: FloatFilter<"Courses"> | number
-    detail?: StringFilter<"Courses"> | string
+    exam_start_time?: DateTimeFilter<"Courses"> | Date | string
   }
 
   export type CoursesOrderByWithRelationInput = {
     id?: SortOrder
-    time_days?: SortOrder
+    crn?: SortOrder
     course?: SortOrder
-    location?: SortOrder
-    section?: SortOrderInput | SortOrder
-    open_reserved_waitlist?: SortOrder
+    section?: SortOrder
     title?: SortOrder
-    ge_credit?: SortOrder
     instructor?: SortOrder
-    course_units?: SortOrder
-    detail?: SortOrder
+    exam_start_time?: SortOrder
   }
 
   export type CoursesWhereUniqueInput = Prisma.AtLeast<{
@@ -1887,30 +1830,22 @@ export namespace Prisma {
     AND?: CoursesWhereInput | CoursesWhereInput[]
     OR?: CoursesWhereInput[]
     NOT?: CoursesWhereInput | CoursesWhereInput[]
-    time_days?: StringFilter<"Courses"> | string
+    crn?: IntFilter<"Courses"> | number
     course?: StringFilter<"Courses"> | string
-    location?: StringFilter<"Courses"> | string
-    section?: StringNullableFilter<"Courses"> | string | null
-    open_reserved_waitlist?: StringFilter<"Courses"> | string
+    section?: StringFilter<"Courses"> | string
     title?: StringFilter<"Courses"> | string
-    ge_credit?: StringFilter<"Courses"> | string
     instructor?: StringFilter<"Courses"> | string
-    course_units?: FloatFilter<"Courses"> | number
-    detail?: StringFilter<"Courses"> | string
+    exam_start_time?: DateTimeFilter<"Courses"> | Date | string
   }, "id">
 
   export type CoursesOrderByWithAggregationInput = {
     id?: SortOrder
-    time_days?: SortOrder
+    crn?: SortOrder
     course?: SortOrder
-    location?: SortOrder
-    section?: SortOrderInput | SortOrder
-    open_reserved_waitlist?: SortOrder
+    section?: SortOrder
     title?: SortOrder
-    ge_credit?: SortOrder
     instructor?: SortOrder
-    course_units?: SortOrder
-    detail?: SortOrder
+    exam_start_time?: SortOrder
     _count?: CoursesCountOrderByAggregateInput
     _avg?: CoursesAvgOrderByAggregateInput
     _max?: CoursesMaxOrderByAggregateInput
@@ -1923,111 +1858,79 @@ export namespace Prisma {
     OR?: CoursesScalarWhereWithAggregatesInput[]
     NOT?: CoursesScalarWhereWithAggregatesInput | CoursesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Courses"> | number
-    time_days?: StringWithAggregatesFilter<"Courses"> | string
+    crn?: IntWithAggregatesFilter<"Courses"> | number
     course?: StringWithAggregatesFilter<"Courses"> | string
-    location?: StringWithAggregatesFilter<"Courses"> | string
-    section?: StringNullableWithAggregatesFilter<"Courses"> | string | null
-    open_reserved_waitlist?: StringWithAggregatesFilter<"Courses"> | string
+    section?: StringWithAggregatesFilter<"Courses"> | string
     title?: StringWithAggregatesFilter<"Courses"> | string
-    ge_credit?: StringWithAggregatesFilter<"Courses"> | string
     instructor?: StringWithAggregatesFilter<"Courses"> | string
-    course_units?: FloatWithAggregatesFilter<"Courses"> | number
-    detail?: StringWithAggregatesFilter<"Courses"> | string
+    exam_start_time?: DateTimeWithAggregatesFilter<"Courses"> | Date | string
   }
 
   export type CoursesCreateInput = {
-    time_days: string
+    crn: number
     course: string
-    location: string
-    section?: string | null
-    open_reserved_waitlist: string
+    section: string
     title: string
-    ge_credit: string
     instructor: string
-    course_units: number
-    detail: string
+    exam_start_time: Date | string
   }
 
   export type CoursesUncheckedCreateInput = {
     id?: number
-    time_days: string
+    crn: number
     course: string
-    location: string
-    section?: string | null
-    open_reserved_waitlist: string
+    section: string
     title: string
-    ge_credit: string
     instructor: string
-    course_units: number
-    detail: string
+    exam_start_time: Date | string
   }
 
   export type CoursesUpdateInput = {
-    time_days?: StringFieldUpdateOperationsInput | string
+    crn?: IntFieldUpdateOperationsInput | number
     course?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    section?: NullableStringFieldUpdateOperationsInput | string | null
-    open_reserved_waitlist?: StringFieldUpdateOperationsInput | string
+    section?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ge_credit?: StringFieldUpdateOperationsInput | string
     instructor?: StringFieldUpdateOperationsInput | string
-    course_units?: FloatFieldUpdateOperationsInput | number
-    detail?: StringFieldUpdateOperationsInput | string
+    exam_start_time?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CoursesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    time_days?: StringFieldUpdateOperationsInput | string
+    crn?: IntFieldUpdateOperationsInput | number
     course?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    section?: NullableStringFieldUpdateOperationsInput | string | null
-    open_reserved_waitlist?: StringFieldUpdateOperationsInput | string
+    section?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ge_credit?: StringFieldUpdateOperationsInput | string
     instructor?: StringFieldUpdateOperationsInput | string
-    course_units?: FloatFieldUpdateOperationsInput | number
-    detail?: StringFieldUpdateOperationsInput | string
+    exam_start_time?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CoursesCreateManyInput = {
     id?: number
-    time_days: string
+    crn: number
     course: string
-    location: string
-    section?: string | null
-    open_reserved_waitlist: string
+    section: string
     title: string
-    ge_credit: string
     instructor: string
-    course_units: number
-    detail: string
+    exam_start_time: Date | string
   }
 
   export type CoursesUpdateManyMutationInput = {
-    time_days?: StringFieldUpdateOperationsInput | string
+    crn?: IntFieldUpdateOperationsInput | number
     course?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    section?: NullableStringFieldUpdateOperationsInput | string | null
-    open_reserved_waitlist?: StringFieldUpdateOperationsInput | string
+    section?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ge_credit?: StringFieldUpdateOperationsInput | string
     instructor?: StringFieldUpdateOperationsInput | string
-    course_units?: FloatFieldUpdateOperationsInput | number
-    detail?: StringFieldUpdateOperationsInput | string
+    exam_start_time?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CoursesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    time_days?: StringFieldUpdateOperationsInput | string
+    crn?: IntFieldUpdateOperationsInput | number
     course?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    section?: NullableStringFieldUpdateOperationsInput | string | null
-    open_reserved_waitlist?: StringFieldUpdateOperationsInput | string
+    section?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ge_credit?: StringFieldUpdateOperationsInput | string
     instructor?: StringFieldUpdateOperationsInput | string
-    course_units?: FloatFieldUpdateOperationsInput | number
-    detail?: StringFieldUpdateOperationsInput | string
+    exam_start_time?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2055,86 +1958,55 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type CoursesCountOrderByAggregateInput = {
     id?: SortOrder
-    time_days?: SortOrder
+    crn?: SortOrder
     course?: SortOrder
-    location?: SortOrder
     section?: SortOrder
-    open_reserved_waitlist?: SortOrder
     title?: SortOrder
-    ge_credit?: SortOrder
     instructor?: SortOrder
-    course_units?: SortOrder
-    detail?: SortOrder
+    exam_start_time?: SortOrder
   }
 
   export type CoursesAvgOrderByAggregateInput = {
     id?: SortOrder
-    course_units?: SortOrder
+    crn?: SortOrder
   }
 
   export type CoursesMaxOrderByAggregateInput = {
     id?: SortOrder
-    time_days?: SortOrder
+    crn?: SortOrder
     course?: SortOrder
-    location?: SortOrder
     section?: SortOrder
-    open_reserved_waitlist?: SortOrder
     title?: SortOrder
-    ge_credit?: SortOrder
     instructor?: SortOrder
-    course_units?: SortOrder
-    detail?: SortOrder
+    exam_start_time?: SortOrder
   }
 
   export type CoursesMinOrderByAggregateInput = {
     id?: SortOrder
-    time_days?: SortOrder
+    crn?: SortOrder
     course?: SortOrder
-    location?: SortOrder
     section?: SortOrder
-    open_reserved_waitlist?: SortOrder
     title?: SortOrder
-    ge_credit?: SortOrder
     instructor?: SortOrder
-    course_units?: SortOrder
-    detail?: SortOrder
+    exam_start_time?: SortOrder
   }
 
   export type CoursesSumOrderByAggregateInput = {
     id?: SortOrder
-    course_units?: SortOrder
+    crn?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2170,53 +2042,18 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2225,6 +2062,14 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2252,29 +2097,15 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2291,6 +2122,17 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2310,48 +2152,18 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
     _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 
