@@ -1,7 +1,8 @@
 import { Button, Input } from "@nextui-org/react";
-import React, { useState, useEffect } from 'react';
-import { useCalendarContext } from '../../_app';
+import React, { useContext, useState, useEffect } from 'react';
+import { useCalendarContext } from './_app';
 import { useRouter } from 'next/router';
+import { calendarContext } from "./_app";
 
 export default function Search() {
     const [courseValue, setCourseValue] = useState<any[]>([]);
@@ -11,7 +12,7 @@ export default function Search() {
     interface CalendarItem {
         course: string;
     }
-    const { calendarList, setCalendarList } = useCalendarContext();
+    const { calendarList, setCalendarList } = useContext(calendarContext);
 
 
     const router = useRouter();
@@ -37,19 +38,28 @@ export default function Search() {
         if (foundCourse) {
             setCourseDisplay(`Course: ${foundCourse.course}, Title: ${foundCourse.title}, Section: ${foundCourse.section}, Instructor: ${foundCourse.instructor}, Exam Time: ${foundCourse.exam_start_time}`);
             setAddCalendarBtn(true);
-        } else {
+        } 
+        else {
             setCourseDisplay("No results found for the given search, please try again!");
             setAddCalendarBtn(false);
         }
     };
 
     const handleAddCalendar = () => {
-        setCalendarList((prev: CalendarItem[]) => [...prev, { course: courseInput }]);
-        // Create a new array to trigger re-render
-        console.log("New Calendar List: ", [...calendarList, courseInput]);
-        
-        // Navigate to calendar page after update
-        router.push('/calendar');
+        const foundCourse = courseValue.find(c => c.course === courseInput);
+
+        const isAlreadyInCalendar = calendarList.some(item => item.includes(foundCourse.course)); //some function returns true if one item matches condition
+
+        if(isAlreadyInCalendar){
+            setCourseDisplay("Course has already been added");
+        } else{
+            calendarList.push(`Course: ${foundCourse.course}, Title: ${foundCourse.title}, Section: ${foundCourse.section}, Instructor: ${foundCourse.instructor}, Exam Time: ${foundCourse.exam_start_time}`);
+            setCalendarList(calendarList);
+            console.log("Calendar list on search page, " ,calendarList);
+            router.push(
+                '/calendar'
+            )
+        }
     };
 
     return (
@@ -83,6 +93,7 @@ export default function Search() {
                     Add to Calendar
                 </Button>
             )}
+
         </div>
     );
 }

@@ -1,26 +1,39 @@
-import { useCalendarContext } from '../../_app'
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Button, Input } from "@nextui-org/react";
+import React from 'react';
+import { useCalendarContext } from './_app';
+import { Button } from "@nextui-org/react";
 
-export default function Calendar(){
+export default function Calendar() {
+    const { calendarList, setCalendarList } = useCalendarContext();
 
-    const {calendarList, setCalendarList} = useCalendarContext();
+    console.log("Calendar list on calendar page, ", calendarList);
 
-    console.log("This is the calendar file: ", calendarList);
-    
-    const handleDeleteCalendar = () => {
+    const handleRemoveCalendar = (index: number) => {
+        setCalendarList((prev) => prev.filter((_, i) => i !== index));
+    };
+
+    const handleExportCalendar = () =>{
         
-    }
+    }   
 
-
-    return(
+    return (
         <div>
-            <h1>Calendar</h1>
             {calendarList.length > 0 ? (
-                calendarList.map((item, index) =>(
-                    <p key = {index}>{item}</p>
-                )
-            )) : <p>No items in calendar</p>}
+                <>
+                    <h1>Calendar</h1>
+                    {calendarList.map((item, index) => (
+                        <div key={index}>
+                            <p>{item}</p>
+                            <Button onPress={() => handleRemoveCalendar(index)}>
+                                Remove
+                            </Button>
+                        </div>
+                    ))}
+                </>
+            ) : (
+                <p>No items in calendar</p>
+            )}
+
+            <Button onPress = {handleExportCalendar}>Export Calendar</Button>
         </div>
-    )
+    );
 }
