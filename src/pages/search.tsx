@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useCalendarContext } from './_app';
 import { useRouter } from 'next/router';
 import { calendarContext } from "./_app";
+import NavBar from "@/components/NavBar";
 
 export default function Search() {
     const [courseValue, setCourseValue] = useState<any[]>([]);
@@ -64,6 +65,7 @@ export default function Search() {
 
     return (
         <div>
+            <NavBar/>
             <div>
                 {courseDisplay ? <h1>Results</h1> : <h1>Search</h1>}
             </div>

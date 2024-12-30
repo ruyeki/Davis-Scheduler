@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCalendarContext } from './_app';
 import { Button } from "@nextui-org/react";
+import NavBar from '@/components/NavBar';
 
 export default function Calendar() {
     const { calendarList, setCalendarList } = useCalendarContext();
@@ -17,6 +18,8 @@ export default function Calendar() {
 
     return (
         <div>
+            <NavBar/>
+            <h1>Calendar</h1>
             {calendarList.length > 0 ? (
                 <>
                     <h1>Calendar</h1>

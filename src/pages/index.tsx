@@ -1,10 +1,12 @@
 import { Button, Input } from "@nextui-org/react";
 import React, { useContext, useState, useEffect } from 'react';
+import NavBar from "@/components/NavBar";
 
 export default function Home() {
 
     return(
         <div>
+            <NavBar />
             <h1>Davis Exam Scheduler</h1>
 
             <Button
