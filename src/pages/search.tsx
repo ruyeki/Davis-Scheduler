@@ -1,4 +1,4 @@
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
 import React, { useContext, useState, useEffect } from 'react';
 import { useCalendarContext } from './_app';
 import { useRouter } from 'next/router';
@@ -83,6 +83,12 @@ export default function Search() {
             >
                 Search Exams
             </Button>
+
+            <Link
+                href = '/missing'
+            >
+                Missing Course? 
+            </Link>
 
             {courseDisplay && <p>{courseDisplay}</p>}
 

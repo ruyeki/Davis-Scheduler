@@ -12,17 +12,26 @@ export default function Calendar() {
         setCalendarList((prev) => prev.filter((_, i) => i !== index));
     };
 
-    const handleExportCalendar = () =>{
-        
-    }   
+    const generateGoogleCalendarLink = (title: string, startTime: string, endTime: string, location = '', description = '') => {
+        const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
+        const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
+    
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+    };
+    
+    const title = 
+    const startTime = calendarList.
+    const endTime = '2024-12-31T12:00:00';
+
+    const calendarLink = generateGoogleCalendarLink(title, startTime, endTime, location, description);
+
 
     return (
         <div>
             <NavBar/>
             <h1>Calendar</h1>
             {calendarList.length > 0 ? (
-                <>
-                    <h1>Calendar</h1>
+                <> 
                     {calendarList.map((item, index) => (
                         <div key={index}>
                             <p>{item}</p>
@@ -36,7 +45,9 @@ export default function Calendar() {
                 <p>No items in calendar</p>
             )}
 
-            <Button onPress = {handleExportCalendar}>Export Calendar</Button>
+            <a href = {calendarLink}>
+                <Button>Export Calendar </Button>
+            </a>
         </div>
     );
 }
