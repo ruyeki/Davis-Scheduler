@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app';
 import React, { createContext, useState, useContext } from 'react';
+import '@/styles/globals.css';
+
 
 // Define context type
 interface CalendarContextType {

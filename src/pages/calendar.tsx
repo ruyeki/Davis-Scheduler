@@ -12,42 +12,69 @@ export default function Calendar() {
         setCalendarList((prev) => prev.filter((_, i) => i !== index));
     };
 
-    const generateGoogleCalendarLink = (title: string, startTime: string, endTime: string, location = '', description = '') => {
-        const start = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, '');
-        const end = new Date(endTime).toISOString().replace(/-|:|\.\d+/g, '');
+    const parseCalendarLink = (item: string) =>{
+        const parts = item.split(',');
+        const course = parts[0]?.replace('Course: ', '') || 'N/A';
+        const title = parts[1]?.replace('Title: ', '') || 'N/A';
+        const examTime = parts.find(part => part.includes('Exam Time: ', ))?.replace('Exam Time: ','') || 'N/A';
+
+        return {course, title, examTime};
+    }
+
+    const generateGoogleCalendarLink = (title: string, startTime: string) => {
+        console.log(`Generating Calendar Link: Title - ${title}, Start Time - ${startTime}`);
     
-        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+        const startDate = new Date(startTime.trim());
+    
+        if (isNaN(startDate.getTime())) {
+            console.error(`Invalid startTime for ${title}: "${startTime.trim()}", using current time.`);
+            startDate.setTime(Date.now());  // Fallback to current date if invalid
+        }
+    
+        const start = startDate.toISOString().replace(/-|:|\.\d+/g, '');
+    
+        const endDate = new Date(startDate);
+        endDate.setHours(endDate.getHours() + 2.0);
+        const end = endDate.toISOString().replace(/-|:|\.\d+/g, '');
+    
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}`;
     };
     
-    const title = 
-    const startTime = calendarList.
-    const endTime = '2024-12-31T12:00:00';
-
-    const calendarLink = generateGoogleCalendarLink(title, startTime, endTime, location, description);
-
 
     return (
-        <div>
-            <NavBar/>
-            <h1>Calendar</h1>
-            {calendarList.length > 0 ? (
-                <> 
-                    {calendarList.map((item, index) => (
-                        <div key={index}>
-                            <p>{item}</p>
-                            <Button onPress={() => handleRemoveCalendar(index)}>
-                                Remove
-                            </Button>
-                        </div>
-                    ))}
-                </>
-            ) : (
-                <p>No items in calendar</p>
-            )}
+        <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00]">
+        <NavBar />
+        <div className = "ml-20 mt-20 animate-fadeIn">
+            <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4">Calendar</h1>
+            {calendarList.length > 0? (
+            <ul>
 
-            <a href = {calendarLink}>
-                <Button>Export Calendar </Button>
-            </a>
+                {calendarList.map((item, index) => {
+                    const { course, title, examTime } = parseCalendarLink(item);
+                    console.log("This is the exam time:", examTime);
+                    const calendarLink = generateGoogleCalendarLink(title, examTime);
+
+                    return (
+                        <li key={index}>
+                            <div className = "text-white">
+                            <strong>{index + 1}. </strong>
+                            <strong>{course}</strong> - {title} <br />
+                            <em>Exam Time:</em> {examTime} <br />
+                            </div>
+                            <Button
+                                variant="bordered"
+                                className="w-[300px] h-[40px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105 mt-4 mb-4">
+                                <a href={calendarLink} target="_blank" rel="noopener noreferrer">
+                                    Export to Google Calendar
+                                </a>
+                            </Button>
+                        </li>
+
+                    );
+                })}
+            </ul>
+            ):(<p className = "text-white">No exams scheduled.</p>)}
+        </div>
         </div>
     );
 }

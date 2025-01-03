@@ -1,4 +1,5 @@
-import { Button, Input, Link } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
+import {Input} from "@nextui-org/react";
 import React, { useContext, useState, useEffect } from 'react';
 import { useCalendarContext } from './_app';
 import { useRouter } from 'next/router';
@@ -13,6 +14,7 @@ export default function Search() {
     interface CalendarItem {
         course: string;
     }
+
     const { calendarList, setCalendarList } = useContext(calendarContext);
 
 
@@ -48,7 +50,6 @@ export default function Search() {
 
     const handleAddCalendar = () => {
         const foundCourse = courseValue.find(c => c.course === courseInput);
-
         const isAlreadyInCalendar = calendarList.some(item => item.includes(foundCourse.course)); //some function returns true if one item matches condition
 
         if(isAlreadyInCalendar){
@@ -64,44 +65,56 @@ export default function Search() {
     };
 
     return (
-        <div>
-            <NavBar/>
+        <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00]">
+        <NavBar/>
+        <div className = "ml-20 animate-fadeIn">
             <div>
-                {courseDisplay ? <h1>Results</h1> : <h1>Search</h1>}
+                {courseDisplay ? <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4 mt-20">Results</h1> : <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4 mt-20">Search</h1>}
             </div>
 
+            <p className = "text-lg text-white mb-2">Find your exam schedule by entering the course code (e.g. ECS 012).</p>
+            <p className = "text-lg text-white mb-4">To add an exam to your calendar, simply click the button. Once you are done, go to the <br></br> Calendar section and export your personalized schedule!</p>
+        <div className = "flex items-center space-x-3 mb-2">
             <Input
                 value={courseInput}
+                className = "w-[300px]"
                 onChange={(e) => setCourseInput(e.target.value)}
-                placeholder="Enter Course"
+                placeholder = "Enter the course code"
             />
 
             <Button
                 variant="bordered"
-                className="w-[250px] h-[40px] font-semibold border-[#06B7DB] border-2 text-[#06B7DB] transition-all duration-300 hover:bg-[#06B7DB] hover:text-white hover:shadow-xl hover:scale-105"
+                className="w-[100px] h-[40px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105"
                 onPress={handleSubmit}
             >
-                Search Exams
+                Search
             </Button>
+        </div>
 
-            <Link
-                href = '/missing'
-            >
-                Missing Course? 
-            </Link>
+        <div
+            onClick={() => router.push('/missing')}
+            className="text-blue-500 cursor-pointer"
+        >
+            Can't find your course?
+        </div>
 
-            {courseDisplay && <p>{courseDisplay}</p>}
+            <div className = "flex items-center space-x-3 mb-2">
+            {courseDisplay && <p className = "mt-10 text-white">{courseDisplay}</p>}
 
             {addCalendarBtn && (
                 <Button
                     onPress={() => {
                         handleAddCalendar();
                     }}
+
+                    className = "mt-10 bg-red-500 text-white w-[25px]"
                 >
-                    Add to Calendar
+                    Add
                 </Button>
             )}
-
+            </div>
+            
+        </div>
         </div>
     );
 }
