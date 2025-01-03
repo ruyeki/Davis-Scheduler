@@ -63,11 +63,16 @@ export default function Calendar() {
                             </div>
                             <Button
                                 variant="bordered"
-                                className="w-[300px] h-[40px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105 mt-4 mb-4">
+                                className="w-[200px] h-[40px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105 mt-4 mb-4">
                                 <a href={calendarLink} target="_blank" rel="noopener noreferrer">
-                                    Export to Google Calendar
+                                    Export
                                 </a>
                             </Button>
+                            <Button 
+                                variant="bordered"
+                                className="w-[100px] h-[40px] bg-red-500 font-semibold text-white transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-xl hover:scale-105 mt-4 mb-4 ml-2"
+                            
+                                onPress={() => handleRemoveCalendar(index)}>Remove</Button>
                         </li>
 
                     );

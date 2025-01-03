@@ -3,6 +3,7 @@ import React from 'react';
 import NavBar from "@/components/NavBar";
 
 export default function Home() {
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00] ">
         <NavBar />
