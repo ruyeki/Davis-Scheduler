@@ -1,12 +1,13 @@
 import { Button } from "@nextui-org/react";
 import React from 'react';
 import NavBar from "@/components/NavBar";
+import Layout from "@/app/layout";
 
 export default function Home() {
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00] ">
-        <NavBar />
+        <div>
+        <Layout>
             
         <div className="min-h-screen flex flex-col items-center justify-center animate-fadeIn">
             <div className="text-center -mt-20">
@@ -30,6 +31,7 @@ export default function Home() {
                 </Button>
             </div>
         </div>
+        </Layout>
         </div>
     )
 }

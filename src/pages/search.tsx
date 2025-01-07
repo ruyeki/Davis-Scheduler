@@ -5,12 +5,14 @@ import { useCalendarContext } from './_app';
 import { useRouter } from 'next/router';
 import { calendarContext } from "./_app";
 import NavBar from "@/components/NavBar";
+import Layout from "@/app/layout";
 
 export default function Search() {
     const [courseValue, setCourseValue] = useState<any[]>([]);
     const [courseInput, setCourseInput] = useState('');
     const [courseDisplay, setCourseDisplay] = useState('');
     const [addCalendarBtn, setAddCalendarBtn] = useState(false);
+    const sizes = ["sm", "md", "lg"];
     interface CalendarItem {
         course: string;
     }
@@ -53,7 +55,7 @@ export default function Search() {
         const isAlreadyInCalendar = calendarList.some(item => item.includes(foundCourse.course)); //some function returns true if one item matches condition
 
         if(isAlreadyInCalendar){
-            setCourseDisplay("Course has already been added");
+            setCourseDisplay("Course has already been added.");
         } else{
             calendarList.push(`Course: ${foundCourse.course}, Title: ${foundCourse.title}, Section: ${foundCourse.section}, Instructor: ${foundCourse.instructor}, Exam Time: ${foundCourse.exam_start_time}`);
             setCalendarList(calendarList);
@@ -65,26 +67,27 @@ export default function Search() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00]">
-        <NavBar/>
+        <div>
+        <Layout>
         <div className = "ml-20 animate-fadeIn">
             <div>
                 {courseDisplay ? <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4 mt-20">Results</h1> : <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4 mt-20">Search</h1>}
             </div>
 
             <p className = "text-lg text-white mb-2">Find your exam schedule by entering the course code (e.g. ECS 012).</p>
-            <p className = "text-lg text-white mb-4">To add an exam to your calendar, simply click the button. Once you are done, go to the <br></br> Calendar section and export your personalized schedule!</p>
+            <p className = "text-lg text-white mb-10">To add an exam to your calendar, simply click the button. Once you are done, go to the <br></br> Calendar section and export your personalized schedule!</p>
         <div className = "flex items-center space-x-3 mb-2">
             <Input
                 value={courseInput}
                 className = "w-[300px]"
                 onChange={(e) => setCourseInput(e.target.value)}
-                placeholder = "Enter the course code"
+                size = "md"
+                label = "Enter the course code"
             />
 
             <Button
                 variant="bordered"
-                className="w-[100px] h-[40px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105"
+                className="w-[100px] h-[60px] font-semibold border-[#FFBF00] border-2 text-[#FFBF00] transition-all duration-300 hover:bg-[#FFBF00] hover:text-white hover:shadow-xl hover:scale-105"
                 onPress={handleSubmit}
             >
                 Search
@@ -115,6 +118,7 @@ export default function Search() {
             </div>
             
         </div>
+        </Layout>
         </div>
     );
 }

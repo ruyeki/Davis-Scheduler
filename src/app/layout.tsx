@@ -8,11 +8,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, loading = false }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00] p-6">
       <NavBar />
-      <main className="flex-grow">
         {children}
-      </main>
     </div>
   );
 };

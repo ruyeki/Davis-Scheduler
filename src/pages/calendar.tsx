@@ -2,6 +2,7 @@ import React from 'react';
 import { useCalendarContext } from './_app';
 import { Button } from "@nextui-org/react";
 import NavBar from '@/components/NavBar';
+import Layout from '@/app/layout';
 
 export default function Calendar() {
     const { calendarList, setCalendarList } = useCalendarContext();
@@ -42,8 +43,8 @@ export default function Calendar() {
     
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#002855] to-[#FFBF00]">
-        <NavBar />
+        <div>
+        <Layout>
         <div className = "ml-20 mt-20 animate-fadeIn">
             <h1 className = "text-5xl font-bold text-[#FFBF00] mb-4">Calendar</h1>
             {calendarList.length > 0? (
@@ -78,8 +79,9 @@ export default function Calendar() {
                     );
                 })}
             </ul>
-            ):(<p className = "text-white">No exams scheduled.</p>)}
+            ):(<p className = "text-white">No exams in your schedule.</p>)}
         </div>
+        </Layout>
         </div>
     );
 }

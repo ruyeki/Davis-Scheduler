@@ -5,7 +5,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from '@nextui-
 export default function NavBar() {
 
     return (
-            <nav className=" p-4 flex items-center justify-between">
+            <nav className=" p-3 flex items-center justify-between">
                 <div className="text-white text-xl font-bold">
                     <Link href="/">Davis Scheduler</Link>
                 </div>
