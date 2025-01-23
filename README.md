@@ -3,9 +3,11 @@ This solo project is a comprehensive exam scheduler designed for UC Davis CS stu
 
 ## Visit The Site
 Feel free to check out the project here! 
+![Davis Scheduler Screenshot] (/webpage_ss.png)
 
 ## Features
-    - MySQL Database: Stores detailed information about exams including date, time, course, location, and more. 
-    - Backend: A combination of Prisma and Next.js provides robust RESTful APIs to manage exam data efficiently.
-    - Frontend: React allows for a user-friendly interface for viewing, adding, editing, and deleting exam information. The app is hosted on Vercel.
+- **MySQL Database**: Stores detailed information about exams including date, time, course, location, and more.
+- **Backend**: A combination of Prisma and Next.js provides robust RESTful APIs to manage exam data efficiently.
+- **Frontend**: React allows for a user-friendly interface for viewing, adding, editing, and deleting exam information. The app is hosted on Vercel.
+
 
