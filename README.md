@@ -3,7 +3,7 @@ This solo project is a comprehensive exam scheduler designed for UC Davis CS stu
 
 ## Visit The Site
 Feel free to check out the project here! 
-![Davis Scheduler Screenshot] (/webpage_ss.png)
+![Davis Scheduler Screenshot] (webpage_ss.png)
 
 ## Features
 - **MySQL Database**: Stores detailed information about exams including date, time, course, location, and more.
