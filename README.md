@@ -11,4 +11,5 @@ Feel free to check out the project [here](https://davis-scheduler.vercel.app)!
 - **Backend**: A combination of Prisma and Next.js provides robust RESTful APIs to manage exam data efficiently.
 - **Frontend**: React allows for a user-friendly interface for viewing, adding, editing, and deleting exam information. The app is hosted on Vercel.
 
-
+## Contributing
+Contributions are welcome! If you'd like to enhance this project or report issues, please submit a pull request or open an issue.
