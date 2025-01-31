@@ -8,7 +8,7 @@ Feel free to check out the project [here](https://davis-scheduler.vercel.app)!
 
 ## Features
 - **MySQL Database**: Stores detailed information about exams including date, time, course, location, and more.
-- **Backend**: A combination of Prisma and Next.js provides robust RESTful APIs to manage exam data efficiently.
+- **Backend**: Prisma provides robust RESTful APIs to manage exam data efficiently.
 - **Frontend**: React allows for a user-friendly interface for viewing, adding, editing, and deleting exam information. The app is hosted on Vercel.
 
 ## Contributing
